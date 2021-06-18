@@ -48,11 +48,14 @@ app.use(bodyParser.json());
 //parse request of content-type -application/x-www-from-urlloaded
 app.use(bodyParser.urlencoded({ extended: true}));
 
-//simple route 
-app.get('/', (req,res) => {
-    res.json({message: "Welcome to Developer Portal"});
-});
+// //simple route 
+// app.get('/', (req,res) => {
+//     res.json({message: "Welcome to Developer Portal"});
+// });
 
+// routes
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
 //set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

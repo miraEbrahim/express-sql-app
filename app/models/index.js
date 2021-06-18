@@ -33,5 +33,12 @@ db.role.belongsToMany(db.user,{
     otherKey:'roleId'
 });
 
+db.user.belongsToMany(db.role, {
+    through: "Table_User_Roles",
+    foreignKey: "idUser",
+    otherKey: "idRole",
+    as: "roles"
+  });
+
 db.ROLES = ['user','admin','csm'];
 module.exports = db;
