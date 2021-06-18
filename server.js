@@ -10,6 +10,38 @@ let corsOptions = {
 
 app.use(cors(corsOptions));
 
+//database code
+const db = require('./app/models');
+const Role = db.role;
+
+//in production , jsut insert roles manaually into db
+// db.sequelize.sync();
+
+//remove this when in production - start
+db.sequelize.sync({force:true}).then(()=> {
+    console.log('Drop and Resynic DB');
+    initial();
+});
+
+function initial(){
+    Role.create({
+        id: 1,
+        name:'user'
+    });
+
+    Role.create({
+        id: 2,
+        name:'csm'
+    });
+
+    Role.create({
+        id: 3,
+        name:'admin'
+    });
+}
+
+//remove this when in production - end
+
 //parse request of content-type -application/json
 app.use(bodyParser.json());
 
