@@ -10,6 +10,6 @@ exports.allAccess = (req, res) => {
     res.status(200).send("Admin Content.");
   };
   
-  exports.csmBoard = (req, res) => {
-    res.status(200).send("CSM Content.");
+  exports.devBoard = (req, res) => {
+    res.status(200).send("DEV Content.");
   };

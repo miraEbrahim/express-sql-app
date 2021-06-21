@@ -41,28 +41,28 @@ isAdmin = (req, res, next) => {
   });
 };
 
-isCSM = (req, res, next) => {
+isDEV = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
       for (let i = 0; i < roles.length; i++) {
-        if (roles[i].name === "csm") {
+        if (roles[i].name === "dev") {
           next();
           return;
         }
       }
 
       res.status(403).send({
-        message: "Require csm Role!"
+        message: "Require dev Role!"
       });
     });
   });
 };
 
-isCSMOrAdmin = (req, res, next) => {
+isDevOrAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
       for (let i = 0; i < roles.length; i++) {
-        if (roles[i].name === "csm") {
+        if (roles[i].name === "dev") {
           next();
           return;
         }
@@ -74,7 +74,7 @@ isCSMOrAdmin = (req, res, next) => {
       }
 
       res.status(403).send({
-        message: "Require csm or Admin Role!"
+        message: "Require dev or Admin Role!"
       });
     });
   });
@@ -83,7 +83,7 @@ isCSMOrAdmin = (req, res, next) => {
 const authJwt = {
   verifyToken: verifyToken,
   isAdmin: isAdmin,
-  isCSM: isCSM,
-  isCSMOrAdmin: isCSMOrAdmin
+  isDEV: isDEV,
+  isDevOrAdmin: isDevOrAdmin
 };
 module.exports = authJwt

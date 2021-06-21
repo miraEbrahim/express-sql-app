@@ -19,9 +19,9 @@ module.exports = function(app) {
   );
 
   app.get(
-    "/api/test/mod",
-    [authJwt.verifyToken, authJwt.isCSM],
-    controller.csmBoard
+    "/api/test/dev",
+    [authJwt.verifyToken, authJwt.isDEV],
+    controller.devBoard
   );
 
   app.get(
