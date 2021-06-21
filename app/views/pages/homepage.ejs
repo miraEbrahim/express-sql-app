@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+                <section class="py-5 text-center container">
+                    <div class="row py-lg-5">
+                        <div class="col-lg-6 col-md-8 mx-auto">
+                            <img src="../../images/codes.svg" alt="" width="64" height="64" class="">
+                            <h2> Welcome "<%= user.fullname%>"</h2>
+                            <h1 class="Code Snippets">home</h1>
+                            <p class="lead text-muted">Something short and leading about the collection below—its
+                                contents, the creator, etc. Make it short and sweet, but not too short so folks don’t
+                                simply skip over it entirely.</p>
+                        </div>
+                    </div>
+
+                    <section>
+                       
+                            <div class="row align-items-md-stretch">
+                                <div class="col-md-4">
+                                    <div class="h-100 p-5 text-white bg-dark rounded-3">
+                                        <h2>Balloons Design</h2>
+                                        <p>Common patterns for ballonns Appearance</p>
+                                        <button class="btn btn-outline-light" type="button">Details</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="h-100 p-5 text-white bg-dark rounded-3">
+                                        <h2>Balloons Design</h2>
+                                        <p>Common patterns for ballonns Appearance</p>
+                                        <button class="btn btn-outline-light" type="button">Details</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="h-100 p-5 bg-light border rounded-3">
+                                        <h2>Functionality</h2>
+                                        <p>Common Functionality and code Integration</p>
+                                        <button class="btn btn-outline-secondary" href="/api-docs" type="button">Details</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </section>
+                    <form method="POST" action="/logout">
+                        <button type="submit" class="btn btn-primary">Log out</button>
+                    </form>
+</body>
+
+</html>

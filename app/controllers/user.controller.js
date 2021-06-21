@@ -11,5 +11,7 @@ exports.allAccess = (req, res) => {
   };
   
   exports.devBoard = (req, res) => {
-    res.status(200).send("DEV Content.");
+    res.status(200).send("dev Content.");
   };
+
+  
