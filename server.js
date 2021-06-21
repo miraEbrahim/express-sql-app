@@ -15,6 +15,7 @@ app.use(cors(corsOptions));
 //Config view engine
 configViewEngine(app);
 
+
 //database code
 const db = require('./app/models');
 const Role = db.role;
