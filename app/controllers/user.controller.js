@@ -12,7 +12,7 @@ exports.allAccess = (req, res) => {
   exports.userBoard = (req, res) => {
     User.findOne({
       where: { id: req.userId },
-      attributes: ['name', 'username', 'email'],
+      attributes: ['firstname', 'lastname', 'username', 'email'],
       include: [{
         model: Role,
         attributes: ['id', 'name'],
@@ -36,7 +36,7 @@ exports.allAccess = (req, res) => {
   exports.adminBoard = (req, res) => {
     User.findOne({
       where: { id: req.userId },
-      attributes: ['name', 'username', 'email'],
+      attributes: ['firstname', 'lastname', 'username', 'email'],
       include: [{
         model: Role,
         attributes: ['id', 'name'],
@@ -60,7 +60,7 @@ exports.allAccess = (req, res) => {
   exports.devBoard = (req, res) => {
     User.findOne({
       where: { id: req.userId },
-      attributes: ['name', 'username', 'email'],
+      attributes: ['firstname', 'lastname', 'username', 'email'],
       include: [{
         model: Role,
         attributes: ['id', 'name'],
