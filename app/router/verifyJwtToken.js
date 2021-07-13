@@ -25,7 +25,7 @@ verifyToken = (req, res, next) => {
 }
  
 isAdmin = (req, res, next) => {  
-  User.findById(req.userId)
+  User.findByPk(req.userId)
     .then(user => {
       user.getRoles().then(roles => {
         for(let i=0; i<roles.length; i++){
@@ -41,9 +41,26 @@ isAdmin = (req, res, next) => {
       })
     })
 }
+
+isDev = (req, res, next) => {
+  User.findByPk(req.userId).then(user => {
+    user.getRoles().then(roles => {
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === "DEV") {
+          next();
+          return;
+        }
+      }
+
+      res.status(403).send({
+        message: "Require DEV Role!"
+      });
+    });
+  });
+};
  
 isDevOrAdmin = (req, res, next) => {
-  User.findById(req.userId)
+  User.findByPk(req.userId)
     .then(user => {
       user.getRoles().then(roles => {
         for(let i=0; i<roles.length; i++){          

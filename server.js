@@ -27,15 +27,15 @@ const db = require('./app/config/db.config.js');
 const Role = db.role;
 
 //in production , jsut insert roles manaually into db
-// db.sequelize.sync().then(() => {
-//     console.log("Database connected!");
-// });
+db.sequelize.sync().then(() => {
+    console.log("Database connected!");
+});
 
 // force: true will drop the table if it already exists
-db.sequelize.sync({force: true}).then(() => {
-  console.log('DATABASE:Drop and Resync with { force: true }');
-  initial();
-});
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('DATABASE:Drop and Resync with { force: true }');
+//   initial();
+// });
 
 
 //simple route 
@@ -59,19 +59,19 @@ app.listen(PORT, () => {
 });
 
 //remove in production
-function initial() {
-	Role.create({
-		id: 1,
-		name: "USER"
-	});
+// function initial() {
+// 	Role.create({
+// 		id: 1,
+// 		name: "USER"
+// 	});
 
-	Role.create({
-		id: 2,
-		name: "DEV"
-	});
+// 	Role.create({
+// 		id: 2,
+// 		name: "DEV"
+// 	});
 
-	Role.create({
-		id: 3,
-		name: "ADMIN"
-	});
-}
+// 	Role.create({
+// 		id: 3,
+// 		name: "ADMIN"
+// 	});
+// }
